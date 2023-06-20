@@ -2,7 +2,7 @@
 
 <a name="readme-top"></a>
 <div align="center">
-    <img src="numerable.png" alt="logo" width="700"  height="auto" />
+    <img src="logo.png" alt="logo" width="700"  height="auto" />
   <br/>
   <h3><b>University Books</b></h3>
 </div>
