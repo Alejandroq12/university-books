@@ -62,7 +62,7 @@ In order to run this project you need:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Alejandroq12/enumerable-ruby.git
+  git clone https://github.com/Alejandroq12/university-books.git
 ```
 
 ### Install
