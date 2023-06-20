@@ -78,7 +78,7 @@ bundle install
 To run the project, navigate to the project directory and execute the following command:
 
 ```sh
-  ruby my_list.rb
+  ruby person.rb
 ```
 
 ### Run tests
@@ -111,7 +111,7 @@ Not available at the moment.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **We will add a GUI.**
+- **I will add a basic UI.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
