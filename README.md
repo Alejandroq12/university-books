@@ -103,13 +103,6 @@ Not available at the moment.
 
 ## 👥 Authors <a name="authors"></a>
 
-
-👤 **Santiago Munoz**
-
-- GitHub: [@smunoz](https://github.com/smunoz1988)
-- Twitter: [@twitterhandle](https://twitter.com/Santiag24209785)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/santiago-munoz-0b2b1a260)
-
 👤 **Julio Quezada**
 
 - GitHub: [Alejandroq12](https://github.com/Alejandroq12)
