@@ -27,7 +27,7 @@
 
 # 📖 University Books <a name="about-project">University Books</a>
 
-This project shows a custom Ruby class, MyList, and a module, MyEnumerable, to simulate functionality of some built-in Enumerable methods. It provides a practical understanding of how classes, modules, and enumerable methods interact in Ruby.
+The University books project is an app developed to simulate the operations of a real-world library within OOP University. This app is designed to utilize Object-Oriented Programming (OOP) principles to create a comprehensive system that captures vital library processes.
 
 ## 🛠 Built With <a name="built-with"></a>
 
