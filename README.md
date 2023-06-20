@@ -36,16 +36,14 @@ The University books project is an app developed to simulate the operations of a
 <details>
 <summary>Backend</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">Ruby</a></li>
+    <li><a href="https://ruby-doc.org/">Ruby</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
-- **Custom Class and Module:** Implementation of a custom Ruby class, `MyList`, and a module, `MyEnumerable`.
-- **Custom Enumerable Methods:** `MyEnumerable` module mimics the functionality of Ruby's built-in Enumerable methods `#all?`, `#any?`, and `#filter`.
-- **Iterable Custom Class:** Instances of `MyList` are iterable with the custom enumerable methods, thanks to an `#each` method in the `MyList` class.
-- **Understanding Ruby Internals:** The project offers practical insights into the behavior of Ruby Enumerable methods.
-- **Test Cases:** Test cases are provided to validate the functionality of the custom enumerable methods.
+- **Register new students or teachers.**
+- **Catalogue new books.**
+- **Track book borrowing records along with timestamps.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
