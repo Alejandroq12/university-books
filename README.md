@@ -1,15 +1,15 @@
-## Enumerables
+## University Books
 
 <a name="readme-top"></a>
 <div align="center">
     <img src="numerable.png" alt="logo" width="700"  height="auto" />
   <br/>
-  <h3><b>Enumerables</b></h3>
+  <h3><b>University Books</b></h3>
 </div>
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Enumerables Enumerables](#-enumerables-enumerables)
+- [📖 University Books University Books](#-university-books-university-books)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -25,7 +25,7 @@
   - [🤝 Contributing ](#-contributing-)
   - [📝 License ](#-license-)
 
-# 📖 Enumerables <a name="about-project">Enumerables</a>
+# 📖 University Books <a name="about-project">University Books</a>
 
 This project shows a custom Ruby class, MyList, and a module, MyEnumerable, to simulate functionality of some built-in Enumerable methods. It provides a practical understanding of how classes, modules, and enumerable methods interact in Ruby.
 
