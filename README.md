@@ -78,7 +78,7 @@ bundle install
 To run the project, navigate to the project directory and execute the following command:
 
 ```sh
-  ruby person.rb
+  ruby main.rb
 ```
 
 ### Run tests
