@@ -23,6 +23,9 @@
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
 # 📖 University Books <a name="about-project">University Books</a>
@@ -78,7 +81,7 @@ bundle install
 To run the project, navigate to the project directory and execute the following command:
 
 ```sh
-  ruby person.rb
+  ruby main.rb
 ```
 
 ### Run tests
@@ -119,6 +122,34 @@ Not available at the moment.
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project please give a star.
+Thanks in advance.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank all of my colleagues who inspire to do my best everyday.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FAQ (optional) -->
+
+## ❓ FAQ <a name="faq"></a>
+
+- **Did you create this project from scratch?**
+
+  - Yes, and for that reason I learned a lot.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
