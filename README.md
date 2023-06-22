@@ -112,6 +112,7 @@ Not available at the moment.
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **I will add a basic UI.**
+- **I will implement composition as an example of the design pattern.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
