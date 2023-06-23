@@ -54,4 +54,17 @@ class App
     puts
   end
 
+  def create_student
+    print 'Age: '
+    age = gets.chomp.to_i
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp.downcase == 'y'
+
+    @people << Student.new(age, name, parent_permission: parent_permission)
+  end
+
 end
