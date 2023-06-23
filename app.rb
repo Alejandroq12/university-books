@@ -67,4 +67,16 @@ class App
     @people << Student.new(age, name, parent_permission: parent_permission)
   end
 
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    name = 'Unknown' if name.empty?
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    @people << Teacher.new(age, name, specialization)
+  end
+
 end
