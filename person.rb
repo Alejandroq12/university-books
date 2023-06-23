@@ -17,7 +17,6 @@ class Person < Nameable
     @rentals << rental
     rental.person = self unless rental.person == self
   end
-end
 
   def correct_name
     @name
