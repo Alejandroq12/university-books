@@ -55,28 +55,48 @@ class App
   end
 
   def create_student
-    print 'Age: '
-    age = gets.chomp.to_i
+    age = nil
+    loop do
+      print 'Age: '
+      age = gets.chomp
+      break if age.match?(/^\d+$/) # checks if the input contains only digits
+
+      puts 'Invalid age. Please enter a valid number.'
+    end
 
     print 'Name: '
     name = gets.chomp
 
-    print 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp.downcase == 'y'
+    parent_permission = nil
+    loop do
+      print 'Has parent permission? [Y/N]: '
+      parent_permission = gets.chomp.downcase
+      break if %w[y n].include?(parent_permission)
 
-    @people << Student.new(age, name, parent_permission: parent_permission)
+      puts 'Invalid input. Please enter Y for Yes or N for No.'
+    end
+
+    @people << Student.new(age.to_i, name, parent_permission: parent_permission == 'y')
   end
 
   def create_teacher
-    print 'Age: '
-    age = gets.chomp.to_i
+    age = nil
+    loop do
+      print 'Age: '
+      age = gets.chomp
+      break if age.match?(/^\d+$/) # checks if the input contains only digits
+
+      puts 'Invalid age. Please enter a valid number.'
+    end
+
     print 'Name: '
     name = gets.chomp
     name = 'Unknown' if name.empty?
+
     print 'Specialization: '
     specialization = gets.chomp
 
-    @people << Teacher.new(age, name, specialization)
+    @people << Teacher.new(age.to_i, name, specialization)
   end
 
   def create_book
