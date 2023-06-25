@@ -79,6 +79,26 @@ class App
     @people << Student.new(age.to_i, name, parent_permission: parent_permission == 'y')
   end
 
+  def create_teacher
+    age = nil
+    loop do
+      print 'Age: '
+      age = gets.chomp
+      break if age.match?(/^\d+$/) # checks if the input contains only digits
+
+      puts 'Invalid age. Please enter a valid number.'
+    end
+
+    print 'Name: '
+    name = gets.chomp
+    name = 'Unknown' if name.empty?
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    @people << Teacher.new(age.to_i, name, specialization)
+  end
+
   def create_book
     print 'Title: '
     title = gets.chomp
