@@ -13,10 +13,10 @@ class BooksController
 
   def create_book
     @interface.print_message('Title: ')
-    title = @interface.get_input
+    title = @interface.input
 
     @interface.print_message('Author: ')
-    author = @interface.get_input
+    author = @interface.input
 
     @books << Book.new(title, author)
     @interface.print_message('Book created successfully')
@@ -28,7 +28,7 @@ class BooksController
     @books.each_with_index do |book, index|
       @interface.print_message("#{index}) Title: \"#{book.title}\", Author: #{book.author}")
     end
-    book_index = @interface.get_input.to_i
+    book_index = @interface.input.to_i
     @books[book_index]
   end
 end

@@ -20,7 +20,7 @@ class App
   def run
     loop do
       @interface.print_options
-      choice = @interface.get_input
+      choice = @interface.input
       handle_option(choice)
     end
   end

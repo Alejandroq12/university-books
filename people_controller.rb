@@ -17,7 +17,7 @@ class PeopleController
 
   def create_person
     @interface.print_message('Do you want to create a student (1) or a teacher (2)? [input number]: ')
-    choice = @interface.get_input
+    choice = @interface.input
 
     case choice
     when '1'
@@ -34,9 +34,11 @@ class PeopleController
   def select_person
     @interface.print_message('Select a person from the following list by number (not id)')
     @people.each_with_index do |person, index|
-      @interface.print_message("#{index}) [#{person.class}]: Name: \"#{person.name}\", ID: #{person.id}, Age: #{person.age}")
+      message = "#{index}) [#{person.class}]: Name: \"#{person.name}\","
+      message += " ID: #{person.id}, Age: #{person.age}"
+      @interface.print_message(message)
     end
-    person_index = @interface.get_input.to_i
+    person_index = @interface.input.to_i
     @people[person_index]
   end
 
@@ -46,14 +48,14 @@ class PeopleController
     age = nil
     loop do
       @interface.print_message('Age: ')
-      age = @interface.get_input
+      age = @interface.input
       break if age.match?(/^\d+$/)
 
       @interface.print_message('Invalid age. Please enter a valid number.')
     end
 
     @interface.print_message('Name: ')
-    name = @interface.get_input
+    name = @interface.input
 
     [age.to_i, name]
   end
@@ -64,7 +66,7 @@ class PeopleController
     parent_permission = nil
     loop do
       @interface.print_message('Has parent permission? [Y/N]: ')
-      parent_permission = @interface.get_input.downcase
+      parent_permission = @interface.input.downcase
       break if %w[y n].include?(parent_permission)
 
       @interface.print_message('Invalid input. Please enter Y for Yes or N for No.')
@@ -77,7 +79,7 @@ class PeopleController
     age, name = create_person_info
 
     @interface.print_message('Specialization: ')
-    specialization = @interface.get_input
+    specialization = @interface.input
 
     @people << Teacher.new(age, name, specialization)
   end

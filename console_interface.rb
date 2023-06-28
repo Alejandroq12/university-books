@@ -18,7 +18,7 @@ class ConsoleInterface
     puts message
   end
 
-  def get_input
+  def input
     gets.chomp
   end
 end

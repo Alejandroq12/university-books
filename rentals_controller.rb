@@ -11,7 +11,7 @@ class RentalsController
 
   def list_rentals_for_person_id
     @interface.print_message('ID of person: ')
-    id = @interface.get_input.to_i
+    id = @interface.input.to_i
 
     rentals = @rentals.filter { |rental| rental.person.id == id }
     @interface.print_message('Rentals:')
@@ -26,7 +26,7 @@ class RentalsController
     person = @people_controller.select_person
 
     @interface.print_message('Date: ')
-    date = @interface.get_input
+    date = @interface.input
 
     @rentals << Rental.new(date, book, person)
     @interface.print_message('Rental created successfully')
