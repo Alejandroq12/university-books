@@ -3,43 +3,50 @@ require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
+require_relative 'console_interface'
 
 class App
   def initialize
     @books = []
     @people = []
     @rentals = []
-    puts "Welcome to School Library App!\n\n"
+    @interface = ConsoleInterface.new
+    @interface.print_welcome_message
+  end
+
+  def run
+    loop do
+      @interface.print_options
+      choice = @interface.get_input
+      handle_option(choice)
+    end
   end
 
   def list_rentals_for_person_id
-    print 'ID of person: '
-    id = gets.chomp.to_i
+    @interface.print_message('ID of person: ')
+    id = @interface.get_input.to_i
 
     rentals = @rentals.filter { |rental| rental.person.id == id }
-    puts 'Rentals:'
+    @interface.print_message('Rentals:')
 
     rentals.each do |rental|
-      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
-      puts
+      @interface.print_message("Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}")
     end
   end
 
   def list_all_books
-    @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
-    puts
+    @books.each { |book| @interface.print_message("Title: \"#{book.title}\", Author: #{book.author}") }
   end
 
   def list_all_people
     @people.each do |person|
-      puts "Type: #{person.class}, Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      @interface.print_message("Type: #{person.class}, Name: #{person.name}, ID: #{person.id}, Age: #{person.age}")
     end
-    puts
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [input number]: '
-    choice = gets.chomp
+    @interface.print_message('Do you want to create a student (1) or a teacher (2)? [input number]: ')
+    choice = @interface.get_input
 
     case choice
     when '1'
@@ -47,88 +54,81 @@ class App
     when '2'
       create_teacher
     else
-      puts 'Invalid option'
+      @interface.print_message('Invalid option')
       return
     end
-    puts 'Person created successfully'
-    puts
+    @interface.print_message('Person created successfully')
+  end
+
+  def create_person_info
+    age = nil
+    loop do
+      @interface.print_message('Age: ')
+      age = @interface.get_input
+      break if age.match?(/^\d+$/)
+
+      @interface.print_message('Invalid age. Please enter a valid number.')
+    end
+
+    @interface.print_message('Name: ')
+    name = @interface.get_input
+
+    [age.to_i, name]
   end
 
   def create_student
-    age = nil
-    loop do
-      print 'Age: '
-      age = gets.chomp
-      break if age.match?(/^\d+$/) # checks if the input contains only digits
-
-      puts 'Invalid age. Please enter a valid number.'
-    end
-
-    print 'Name: '
-    name = gets.chomp
+    age, name = create_person_info
 
     parent_permission = nil
     loop do
-      print 'Has parent permission? [Y/N]: '
-      parent_permission = gets.chomp.downcase
+      @interface.print_message('Has parent permission? [Y/N]: ')
+      parent_permission = @interface.get_input.downcase
       break if %w[y n].include?(parent_permission)
 
-      puts 'Invalid input. Please enter Y for Yes or N for No.'
+      @interface.print_message('Invalid input. Please enter Y for Yes or N for No.')
     end
 
-    @people << Student.new(age.to_i, name, parent_permission: parent_permission == 'y')
+    @people << Student.new(age, name, parent_permission: parent_permission == 'y')
   end
 
   def create_teacher
-    age = nil
-    loop do
-      print 'Age: '
-      age = gets.chomp
-      break if age.match?(/^\d+$/) # checks if the input contains only digits
+    age, name = create_person_info
 
-      puts 'Invalid age. Please enter a valid number.'
-    end
+    @interface.print_message('Specialization: ')
+    specialization = @interface.get_input
 
-    print 'Name: '
-    name = gets.chomp
-    name = 'Unknown' if name.empty?
-
-    print 'Specialization: '
-    specialization = gets.chomp
-
-    @people << Teacher.new(age.to_i, name, specialization)
+    @people << Teacher.new(age, name, specialization)
   end
 
   def create_book
-    print 'Title: '
-    title = gets.chomp
-    print 'Author: '
-    author = gets.chomp
+    @interface.print_message('Title: ')
+    title = @interface.get_input
+
+    @interface.print_message('Author: ')
+    author = @interface.get_input
 
     @books << Book.new(title, author)
-    puts 'Book created successfully'
-    puts
+    @interface.print_message('Book created successfully')
   end
 
   def create_rental
-    puts 'Select a book from the following list by number'
+    @interface.print_message('Select a book from the following list by number')
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+      @interface.print_message("#{index}) Title: \"#{book.title}\", Author: #{book.author}")
     end
-    book_index = gets.chomp.to_i
+    book_index = @interface.get_input.to_i
 
-    puts 'Select a person from the following list by number (not id)'
+    @interface.print_message('Select a person from the following list by number (not id)')
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}]: Name: \"#{person.name}\", ID: #{person.id}, Age: #{person.age}"
+      @interface.print_message("#{index}) [#{person.class}]: Name: \"#{person.name}\", ID: #{person.id}, Age: #{person.age}")
     end
-    person_index = gets.chomp.to_i
+    person_index = @interface.get_input.to_i
 
-    print 'Date: '
-    date = gets.chomp
+    @interface.print_message('Date: ')
+    date = @interface.get_input
 
     @rentals << Rental.new(date, @books[book_index], @people[person_index])
-    puts 'Rental created successfully'
-    puts
+    @interface.print_message('Rental created successfully')
   end
 
   def handle_option(choice)
@@ -140,7 +140,7 @@ class App
       '5' => method(:create_rental),
       '6' => method(:list_rentals_for_person_id),
       '7' => proc {
-               puts 'Thank you for using this app!'
+               @interface.print_message('Thank you for using this app!')
                exit
              }
     }
@@ -148,23 +148,7 @@ class App
     if options[choice]
       options[choice].call
     else
-      puts 'Invalid option'
+      @interface.print_message('Invalid option')
     end
-  end
-
-  def main
-    puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
-
-    choice = gets.chomp
-
-    handle_option(choice)
-    main
   end
 end
