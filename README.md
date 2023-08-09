@@ -150,7 +150,6 @@ I would like to thank all of my colleagues who inspire to do my best everyday.
 
   - Yes, and for that reason I learned a lot.
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
